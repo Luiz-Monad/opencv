@@ -2,7 +2,7 @@
 #  CMake file for libtiff. See root CMakeLists.txt
 #
 # ----------------------------------------------------------------------------
-project(${TIFF_LIBRARY})
+project(${TIFF_LIBRARY} C)
 
 include(CheckCSourceCompiles)
 include(CheckFunctionExists)
