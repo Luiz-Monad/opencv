@@ -25,11 +25,12 @@ include(CheckTypeSize)
 check_type_size("size_t" SIZEOF_SIZE_T)
 check_type_size("unsigned long" SIZEOF_UNSIGNED_LONG)
 
-if(SIZEOF_SIZE_T EQUAL SIZEOF_UNSIGNED_LONG)
-  check_c_source_compiles("int main(int argc, char **argv) { unsigned long a = argc;  return __builtin_ctzl(a); }"
-    HAVE_BUILTIN_CTZL)
-endif()
-if(MSVC)
+if(NOT MSVC)
+  if(SIZEOF_SIZE_T EQUAL SIZEOF_UNSIGNED_LONG)
+    check_c_source_compiles("int main(int argc, char **argv) { unsigned long a = argc;  return __builtin_ctzl(a); }"
+      HAVE_BUILTIN_CTZL)
+  endif()
+else()
   check_include_files("intrin.h" HAVE_INTRIN_H)
 endif()
 
