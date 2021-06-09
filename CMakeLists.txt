@@ -1,3 +1,5 @@
+include(portfile.cmake)
+
 # ----------------------------------------------------------------------------
 #  Root CMake file for OpenCV
 #
@@ -13,7 +15,6 @@ FATAL: In-source builds are not allowed.
        You should create a separate directory for build files.
 ")
 endif()
-
 
 include(cmake/OpenCVMinDepVersions.cmake)
 
