@@ -610,7 +610,7 @@ endif()
 ocv_cmake_hook(POST_CMAKE_BUILD_OPTIONS)
 
 # --- Python Support ---
-if(NOT IOS)
+if(0)
   include(cmake/OpenCVDetectPython.cmake)
 endif()
 
@@ -795,7 +795,7 @@ if(WITH_OPENVX)
 endif()
 
 if(WITH_QUIRC)
-  add_subdirectory(3rdparty/quirc)
+  find_package(quirc CONFIG REQUIRED)
   set(HAVE_QUIRC TRUE)
 endif()
 

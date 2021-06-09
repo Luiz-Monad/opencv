@@ -114,11 +114,11 @@ function(ocv_gen_config TMP_DIR NESTED_PATH ROOT_NAME)
   endif()
 endfunction()
 
-if((CMAKE_HOST_SYSTEM_NAME MATCHES "Linux" OR UNIX) AND NOT ANDROID)
+if(TRUE)
   ocv_gen_config("${CMAKE_BINARY_DIR}/unix-install" "" "")
 endif()
 
-if(ANDROID)
+if(FALSE)
   ocv_gen_config("${CMAKE_BINARY_DIR}/unix-install" "abi-${ANDROID_NDK_ABI_NAME}" "OpenCVConfig.root-ANDROID.cmake.in")
   install(FILES "${OpenCV_SOURCE_DIR}/platforms/android/android.toolchain.cmake" DESTINATION "${OPENCV_CONFIG_INSTALL_PATH}" COMPONENT dev)
 endif()
@@ -126,7 +126,7 @@ endif()
 # --------------------------------------------------------------------------------------------
 #  Part 3/3: ${BIN_DIR}/win-install/OpenCVConfig.cmake  -> For use within binary installers/packages
 # --------------------------------------------------------------------------------------------
-if(WIN32)
+if(0)
   if(CMAKE_HOST_SYSTEM_NAME MATCHES Windows AND NOT OPENCV_SKIP_CMAKE_ROOT_CONFIG)
     ocv_gen_config("${CMAKE_BINARY_DIR}/win-install"
                    "${OPENCV_INSTALL_BINARIES_PREFIX}${OPENCV_INSTALL_BINARIES_SUFFIX}"
